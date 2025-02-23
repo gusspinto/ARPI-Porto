@@ -92,10 +92,55 @@ nav {
     transition: background-color 0.3s;
 }
 
-.navbar-nav .nav-link:hover {
-    background-color: #1f2b5f;
-    border-radius: 5px;
+/* Carousel Styles */
+.image-scroll-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px 0;
+    gap: 10px;
+    position: relative;
+    width: 80%;
 }
+
+.images {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.images img {
+    width: 100%;
+    height: auto;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border: none;
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 
 /* Section Styles */
 section {
