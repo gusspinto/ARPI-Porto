@@ -1,5 +1,5 @@
 body {
-    font-family: 'Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', serif; 
+    font-family: 'Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Light background color */
@@ -18,47 +18,45 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    margin-right: 10px; /* Adjust spacing on smaller screens */
 }
 
 .logo img {
-    width: 120px; /* Slightly smaller logo on smaller screens */
+    width: 120px; /* Adjust logo size */
     height: auto;
 }
 
 /* Navbar Styles */
 nav {
-    flex-grow: 1; /* Allows nav to take up the remaining space */
+    flex-grow: 1;
     display: flex;
-    justify-content: flex-end; /* Aligns the links to the right */
-    flex-wrap: wrap; /* Allow navigation to wrap on smaller screens */
+    justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 nav ul {
-    list-style: none; /* Removes default list styling */
+    list-style: none;
     display: flex;
-    gap: 20px; /* Adds space between links */
+    gap: 20px;
     padding: 0;
     margin: 0;
 }
 
 nav ul li {
-    display: inline; /* Ensures links appear inline */
+    display: inline;
 }
 
 nav ul li a {
-    text-decoration: none; /* Removes underline from links */
-    color: white; /* Makes the links white */
-    font-weight: bold; /* Makes the text bold */
-    font-size: 16px; /* Controls the font size */
-    padding: 10px; /* Adds padding around links */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    transition: background-color 0.3s;
 }
 
 nav ul li a:hover {
     background-color: #1f2b5f; /* Darkens the link background on hover */
-    border-radius: 4px; /* Adds rounded corners on hover */
-    color: white; /* Makes the links white */
+    border-radius: 4px;
 }
 
 /* Section Styles */
@@ -69,25 +67,25 @@ section {
 section h1 {
     font-size: 32px;
     font-weight: bold;
-    color: #333; /* Dark color for the heading */
+    color: #333;
     margin-bottom: 20px;
 }
 
 section p {
     font-size: 18px;
-    color: #666; /* Lighter color for the paragraph */
+    color: #666;
 }
 
 /* Image Styles */
 section img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px; /* Adds rounded corners to images */
+    border-radius: 8px;
 }
 
 /* Footer Styles */
 footer {
-    background-color: #2C5AA0; /* Same color as header */
+    background-color: #2C5AA0;
     color: white;
     padding: 20px;
     text-align: center;
@@ -97,7 +95,7 @@ footer {
 .image-scroll-container {
     display: flex;
     align-items: center;
-    overflow: hidden; /* Hide overflowing images */
+    overflow: hidden;
     padding: 10px 0;
     gap: 10px;
     position: relative;
@@ -106,141 +104,112 @@ footer {
 
 .images {
     display: flex;
-    transition: transform 0.3s ease-in-out; /* Smooth transition for scrolling */
+    transition: transform 0.3s ease-in-out;
 }
 
 .images img {
     width: 100%;
-    max-width: 100%; /* Ensures the image takes up the container width */
     height: auto;
     scroll-snap-align: start;
-    flex-shrink: 0; /* Prevents images from shrinking */
-    object-fit: cover; /* Keeps image aspect ratio */
+    flex-shrink: 0;
+    object-fit: cover;
 }
 
-.scroll-btn {
+.scroll-btn, .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    border: none;
     font-size: 24px;
     padding: 10px;
     cursor: pointer;
     z-index: 1;
+    border: none;
 }
 
 .carousel-btn {
-    position: absolute;
-    top: 50%;
-    z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
 }
 
 .left-btn {
     left: 10px;
-    transform: translateY(-50%);
 }
 
 .right-btn {
     right: 10px;
-    transform: translateY(-50%);
 }
 
-.scroll-btn:hover {
+.scroll-btn:hover, .carousel-btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Style for the arrow icon in the toggler */
-.navbar-toggler i {
-    font-size: 20px;
-    color: white;
-    transition: transform 0.3s ease;
+/* Navbar Toggler */
+.navbar-toggler-icon {
+    background-color: #fff;
 }
 
-/* Rotate Arrow when Navbar is Expanded */
-.navbar-toggler[aria-expanded="true"] i {
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     transform: rotate(180deg);
 }
 
+/* Navbar Collapse */
 .navbar-collapse {
-    display: flex;
-    max-height: 0;
-    transition: max-height 0.5s ease-in-out; /* Smooth opening and closing */
+    display: none;
+    transition: all 0.5s ease;
 }
 
 .navbar-collapse.show {
-    max-height: 500px; /* Adjust as needed */
-    transition: max-height 0.5s ease-in-out; /* Smooth expand */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Responsive Layout for Smaller Screens (Tablet, Mobile) */
+/* Responsive Layout */
 @media (max-width: 1024px) {
     header {
-        flex-direction: column; /* Stacks the logo and navbar vertically */
-        align-items: flex-start; /* Aligns items to the start of the header */
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     nav {
-        flex-direction: column; /* Stacks the navigation links vertically */
-        align-items: flex-start; /* Aligns the links to the left */
+        flex-direction: column;
+        align-items: flex-start;
         width: 100%;
     }
 
     nav ul {
-        flex-direction: column; /* Makes the list vertical on small screens */
-        gap: 10px; /* Adjusts spacing between the links */
-    }
-
-    nav ul li a {
-        font-size: 14px; /* Smaller font size for mobile */
-        padding: 10px; /* Adjust padding */
+        flex-direction: column;
+        gap: 10px;
     }
 
     section h1 {
-        font-size: 28px; /* Smaller heading for mobile */
+        font-size: 28px;
     }
 
     section p {
-        font-size: 16px; /* Smaller paragraph text for mobile */
+        font-size: 16px;
     }
 
-    /* Image Container Adjustment */
     .image-scroll-container {
-        height: auto; /* Adjust container height to fit content */
+        height: auto;
     }
 }
 
 @media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Stacks the logo and navbar vertically */
-        align-items: flex-start; /* Aligns items to the start of the header */
-    }
-
     .logo img {
-        width: 100px; /* Adjust logo size on smaller screens */
-    }
-
-    .image-scroll-container {
-        height: auto; /* Let image container shrink with smaller screens */
+        width: 100px;
     }
 
     nav ul li a {
-        font-size: 12px; /* Smaller font size for mobile */
+        font-size: 12px;
     }
 
     section h1 {
-        font-size: 24px; /* Smaller heading for mobile */
+        font-size: 24px;
     }
 
     section p {
-        font-size: 14px; /* Smaller paragraph text for mobile */
+        font-size: 14px;
     }
 }
 
@@ -250,31 +219,27 @@ footer {
     }
 
     .logo img {
-        width: 80px; /* Adjust logo size for very small screens */
-    }
-
-    .image-scroll-container {
-        height: auto; /* Let image container shrink to fit */
+        width: 80px;
     }
 
     .carousel-btn {
-        font-size: 18px; /* Smaller button size for very small screens */
+        font-size: 18px;
         padding: 8px;
     }
 
     section h1 {
-        font-size: 20px; /* Smaller heading for very small screens */
+        font-size: 20px;
     }
 
     section p {
-        font-size: 12px; /* Smaller paragraph text for very small screens */
+        font-size: 12px;
     }
 
     nav ul {
-        gap: 8px; /* Adjust the spacing between the links */
+        gap: 8px;
     }
 
     nav ul li a {
-        font-size: 10px; /* Smaller font size for very small screens */
+        font-size: 10px;
     }
 }

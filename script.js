@@ -46,22 +46,24 @@ document.addEventListener("DOMContentLoaded", function() {
     if (rightButton) {
         rightButton.addEventListener('click', scrollRight);
     }
-});
 
-// Wait for the document to be ready
-document.addEventListener('DOMContentLoaded', function () {
-    // Select the navbar toggle button and the navbar collapse
-    const navbarToggle = document.querySelector('.navbar-toggler');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
+    // Ensure the navbar toggler icon works correctly
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const icon = navbarToggler.querySelector('i');
 
-    // Add click event to the toggle button
-    navbarToggle.addEventListener('click', function () {
-        // Toggle the 'show' class on the navbar collapse for smooth transition
-        navbarCollapse.classList.toggle('show');
+    navbarToggler.addEventListener('click', function() {
+        const expanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+
+        // Toggle the aria-expanded attribute and icon based on the current state
+        navbarToggler.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        
+        // Toggle the icon to show the correct arrow
+        if (expanded) {
+            icon.classList.remove('fa-arrow-up');
+            icon.classList.add('fa-arrow-down'); // Set down arrow when collapsed
+        } else {
+            icon.classList.remove('fa-arrow-down');
+            icon.classList.add('fa-arrow-up'); // Set up arrow when expanded
+        }
     });
-
-    // Ensure the navbar is correctly visible or hidden based on initial state
-    if (window.innerWidth >= 1024) {
-        navbarCollapse.classList.add('show');  // Ensures the navbar is open on desktop
-    }
 });
