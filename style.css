@@ -155,13 +155,13 @@ footer {
 
 /* Navbar Collapse */
 .navbar-collapse {
-    display: none;
-    transition: all 0.5s ease;
+    max-height: 0; /* Start with 0 height */
+    overflow: hidden; /* Hide overflowing content */
+    transition: max-height 0.5s ease-in-out; /* Smooth transition for expanding/collapsing */
 }
 
 .navbar-collapse.show {
-    display: flex;
-    flex-direction: column;
+    max-height: 500px; /* Allow it to expand to a large enough value */
 }
 
 /* Responsive Layout */
