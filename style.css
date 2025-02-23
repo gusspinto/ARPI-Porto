@@ -175,12 +175,10 @@ footer {
     transition: max-height 0.5s ease-in-out; /* Smooth opening and closing */
 }
 
-/* To make sure the navbar is shown correctly when toggled */
 .navbar-collapse.show {
-    display: block; /* Forces display when expanded */
-    transition: none; /* Disable transition during show */
+    max-height: 500px; /* Adjust as needed */
+    transition: max-height 0.5s ease-in-out; /* Smooth expand */
 }
-
 
 /* Responsive Layout for Smaller Screens (Tablet, Mobile) */
 @media (max-width: 1024px) {
