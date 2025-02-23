@@ -18,10 +18,10 @@
                 <img src="./images/arpi_logo.png" alt="Logo da ARPI Porto">
             </a>
         </div>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg navbar-custom">
             <!-- Navbar Toggler for smaller screens -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-arrow-down"></i> <!-- Default Arrow Icon -->
+                <i class="fas fa-bars"></i> <!-- Hamburger Icon -->
             </button>
 
             <!-- Navbar links -->
@@ -42,6 +42,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contactos">Contactos</a>
                     </li>
+                    <!-- Add Search Bar -->
+                    <li class="nav-item">
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -50,7 +57,7 @@
     <section id="inicio" class="container">
         <h1>Bem-vindo à ARPI Porto</h1>
         <p>A ARPI é uma Instituição Particular de Solidariedade Social (IPSS) fundada em 1976 com sede na cidade do Porto que tem como missão, a promoção e desenvolvimento de atividades diversificadas no âmbito da ação social, cultural e recreativa com vista a integração social e comunitária da população sénior.</p>
-        <p>Venha conhecer a nossa família</p>
+        <p class="cta">Venha conhecer a nossa família!</p>
         <div class="image-scroll-container">
             <button class="carousel-btn left-btn" onclick="scrollLeft()">&#10094;</button>
             <div class="images">
@@ -79,9 +86,9 @@
             // Toggle the icon and ensure the navbar collapses/expands only when clicked
             if (expanded) {
                 icon.classList.remove('fa-arrow-up');
-                icon.classList.add('fa-arrow-down'); // Set down arrow when closed
+                icon.classList.add('fa-bars'); // Set down arrow when closed
             } else {
-                icon.classList.remove('fa-arrow-down');
+                icon.classList.remove('fa-bars');
                 icon.classList.add('fa-arrow-up'); // Set up arrow when expanded
             }
         });

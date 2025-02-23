@@ -11,7 +11,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 30px; /* Adjusted padding for spacing around the logo */
     background-color: #2C5AA0; /* ARPI Porto color */
     width: 100%;
 }
@@ -41,12 +41,33 @@ nav {
     font-size: 18px;
 }
 
+/* Add transition to the icon */
 .navbar-toggler i {
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Rotate the icon when toggled */
+.navbar-toggler i.fa-arrow-up {
+    transform: rotate(0deg);
+}
+
+.navbar-toggler i.fa-arrow-down {
+    transform: rotate(180deg); /* Rotate the down arrow by 180 degrees */
+}
+
+/* Navbar collapse transition */
 .navbar-collapse {
-    transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out; /* Only transition max-height */
+    overflow: hidden; /* Prevent content from spilling out */
+    max-height: 0; /* Initially hidden */
+    background-color: #2C5AA0; /* ARPI Porto color */
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Add shadow */
+}
+
+/* When the navbar is shown */
+.navbar-collapse.show {
+    max-height: 500px; /* Expand to the desired height */
 }
 
 /* Navbar links and dropdown styling */
@@ -90,14 +111,8 @@ section h1 {
 
 section p {
     font-size: 18px;
+    text-align: justify;
     color: #666;
-}
-
-/* Image Styles */
-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
 }
 
 /* Footer Styles */
@@ -107,61 +122,6 @@ footer {
     padding: 20px;
     text-align: center;
 }
-
-/* Image Scroll Styles */
-.image-scroll-container {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    padding: 10px 0;
-    gap: 10px;
-    position: relative;
-    width: 80%;
-}
-
-.images {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-}
-
-.images img {
-    width: 100%;
-    height: auto;
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    object-fit: cover;
-}
-
-.scroll-btn, .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1;
-    border: none;
-}
-
-.carousel-btn {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.left-btn {
-    left: 10px;
-}
-
-.right-btn {
-    right: 10px;
-}
-
-.scroll-btn:hover, .carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Navbar Toggler */
 
 /* Responsive Layout */
 @media (max-width: 1024px) {
@@ -176,42 +136,12 @@ footer {
         width: 100%;
     }
 
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
     section h1 {
         font-size: 28px;
     }
 
     section p {
         font-size: 16px;
-    }
-
-    .image-scroll-container {
-        height: auto;
-    }
-    .navbar-toggler {
-        display: block;
-        background-color: transparent;
-        border: none;
-    }
-
-    /* Ensure the navbar toggler doesn't push content when expanded */
-    .navbar-collapse {
-        width: 100%;
-        position: absolute; /* Overlay the navbar on top */
-        top: 100%; /* Make sure it appears below the header */
-        left: 0;
-        background-color: #2C5AA0;
-        z-index: 100;
-    }
-
-    /* Prevent empty space on larger screens */
-    .navbar-collapse.show {
-        display: block; /* Show when expanded */
-        max-height: 500px; /* Adjust according to your content */
     }
 }
 
@@ -253,24 +183,11 @@ footer {
         width: 80px;
     }
 
-    .carousel-btn {
-        font-size: 18px;
-        padding: 8px;
-    }
-
     section h1 {
         font-size: 20px;
     }
 
     section p {
         font-size: 12px;
-    }
-
-    nav ul {
-        gap: 8px;
-    }
-
-    nav ul li a {
-        font-size: 10px;
     }
 }
