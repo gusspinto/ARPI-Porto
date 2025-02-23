@@ -1,5 +1,6 @@
+/* Reset and body styles */
 body {
-    font-family: 'Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4; /* Light background color */
@@ -8,16 +9,17 @@ body {
 /* Header Styles */
 header {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
     padding: 10px 20px;
     background-color: #2C5AA0; /* ARPI Porto color */
-    flex-wrap: wrap; /* Allow items to wrap on small screens */
+    width: 100%;
 }
 
 .logo {
     display: flex;
     align-items: center;
+    margin-right: 30px; /* Space between logo and navbar */
 }
 
 .logo img {
@@ -27,36 +29,51 @@ header {
 
 /* Navbar Styles */
 nav {
-    flex-grow: 1;
     display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: none;
+.navbar-toggler {
+    background-color: transparent;
+    border: none;
     color: white;
-    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar-toggler i {
+    transition: transform 0.3s;
+}
+
+.navbar-collapse {
+    transition: max-height 0.5s ease-in-out;
+}
+
+/* Navbar links and dropdown styling */
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 100%;
+    max-width: 900px; /* Limit max width to make the navbar compact */
+}
+
+.navbar-nav .nav-item {
+    position: relative;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    padding: 10px 20px;
     font-size: 16px;
-    padding: 10px;
+    font-weight: bold;
+    text-decoration: none;
     transition: background-color 0.3s;
 }
 
-nav ul li a:hover {
-    background-color: #1f2b5f; /* Darkens the link background on hover */
-    border-radius: 4px;
+.navbar-nav .nav-link:hover {
+    background-color: #1f2b5f;
+    border-radius: 5px;
 }
 
 /* Section Styles */
@@ -145,24 +162,6 @@ footer {
 }
 
 /* Navbar Toggler */
-.navbar-toggler-icon {
-    background-color: #fff;
-}
-
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-    transform: rotate(180deg);
-}
-
-/* Navbar Collapse */
-.navbar-collapse {
-    max-height: 0; /* Start with 0 height */
-    overflow: hidden; /* Hide overflowing content */
-    transition: max-height 1s ease-in-out; /* Smooth transition for expanding/collapsing */
-}
-
-.navbar-collapse.show {
-    max-height: 500px; /* Allow it to expand to a large enough value */
-}
 
 /* Responsive Layout */
 @media (max-width: 1024px) {
@@ -192,6 +191,38 @@ footer {
 
     .image-scroll-container {
         height: auto;
+    }
+    .navbar-toggler {
+        display: block;
+        background-color: transparent;
+        border: none;
+    }
+
+    /* Ensure the navbar toggler doesn't push content when expanded */
+    .navbar-collapse {
+        width: 100%;
+        position: absolute; /* Overlay the navbar on top */
+        top: 100%; /* Make sure it appears below the header */
+        left: 0;
+        background-color: #2C5AA0;
+        z-index: 100;
+    }
+
+    /* Prevent empty space on larger screens */
+    .navbar-collapse.show {
+        display: block; /* Show when expanded */
+        max-height: 500px; /* Adjust according to your content */
+    }
+}
+
+@media (min-width: 1025px) {
+    .navbar-collapse {
+        display: flex; /* Default display for larger screens */
+        max-height: none; /* No max-height limit */
+    }
+
+    .navbar-toggler {
+        display: none; /* Hide the toggler on larger screens */
     }
 }
 
