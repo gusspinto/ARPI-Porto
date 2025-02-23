@@ -157,7 +157,7 @@ footer {
 .navbar-collapse {
     max-height: 0; /* Start with 0 height */
     overflow: hidden; /* Hide overflowing content */
-    transition: max-height 0.5s ease-in-out; /* Smooth transition for expanding/collapsing */
+    transition: max-height 1s ease-in-out; /* Smooth transition for expanding/collapsing */
 }
 
 .navbar-collapse.show {
