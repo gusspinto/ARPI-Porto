@@ -62,7 +62,7 @@ nav {
     max-height: 0; /* Initially hidden */
     background-color: #2C5AA0; /* ARPI Porto color */
     border-radius: 0 0 10px 10px; /* Rounded bottom corners */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Add shadow */
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); /* Add shadow */
 }
 
 /* When the navbar is shown */
@@ -89,8 +89,38 @@ nav {
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.5s, color 0.5s;
 }
+
+/* Hover effect */
+/* Hover effect - simple yet elegant */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light transparent white */
+    color: #383734; /* Elegant gold */
+    border-radius: 6px; /* Slight rounding for a refined look */
+    transition: all 0.6s ease-in-out;
+}
+
+/* Active link style */
+.navbar-nav .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.479);
+    color: #2C5AA0; /* ARPI Porto color */
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Search bar styling */
+.search-container {
+    margin-left: 20px;
+}
+
+.form-control {
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
 
 /* Carousel Styles */
 .image-scroll-container {

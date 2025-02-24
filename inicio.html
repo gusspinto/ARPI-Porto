@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARPI Porto</title>
-    <!-- Link to Font Awesome for icons -->
+    <!-- Link to Font Awesome for icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Link to Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="inicio.html">Início</a>
+                        <a class="nav-link active" href="inicio.html">Início</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#instituicao">Instituição</a>
@@ -42,12 +42,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contactos">Contactos</a>
                     </li>
-                    <!-- Search Bar -->
-                    <!--<li class="nav-item search-container">
+                    <!-- Add Search Bar -->
+                    <li class="nav-item">
                         <form class="form-inline">
-                            <input id="searchBar" class="form-control mr-sm-2" type="search" placeholder="Procurar..." aria-label="Search">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
                         </form>
-                    </li>-->
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -71,12 +72,58 @@
         <p>&copy; 2024 ARPI Porto. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Link to Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Make sure the navbar toggler works correctly
+        document.querySelector('.navbar-toggler').addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+
+            // Toggle the icon and ensure the navbar collapses/expands only when clicked
+            if (expanded) {
+                icon.classList.remove('fa-arrow-up');
+                icon.classList.add('fa-bars'); // Set down arrow when closed
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-arrow-up'); // Set up arrow when expanded
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav-link");
     
-    <!-- External script -->
+            function activateLink() {
+                let currentSection = "";
+    
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+    
+                    if (window.scrollY >= sectionTop - 50) {
+                        currentSection = section.getAttribute("id");
+                    }
+                });
+    
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href").includes(currentSection)) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+    
+            window.addEventListener("scroll", activateLink);
+        });
+    </script>
+    
+
+    <!-- External script (if necessary) -->
     <script src="script.js"></script>
 </body>
 </html>
